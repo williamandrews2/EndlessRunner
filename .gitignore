@@ -30,6 +30,9 @@
 CasualGameSounds/
 Music Tracks/
 
+# Imported Assets can be huge.
+/[Aa]ssets/Imported Assets
+
 # Gradle cache directory
 .gradle/
 
