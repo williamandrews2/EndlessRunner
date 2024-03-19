@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -651,13 +652,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15083726, y: -0, z: -0, w: 0.98855865}
-  m_LocalPosition: {x: -0.31, y: 3.331, z: -7.5610003}
+  m_LocalRotation: {x: 0.1564345, y: 0, z: 0, w: 0.98768836}
+  m_LocalPosition: {x: 0, y: 4.991, z: -15.011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1312291509}
-  m_LocalEulerAnglesHint: {x: 17.351, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 18, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ff3566d0db188449a83e11dda9ea22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &1052038717
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +816,6 @@ Transform:
   - {fileID: 1633723481}
   - {fileID: 936272391}
   - {fileID: 758326230}
-  - {fileID: 963194228}
   m_Father: {fileID: 350525678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1312291510
@@ -951,6 +964,7 @@ MonoBehaviour:
   Tile2: {fileID: 5891763194556114687, guid: aae19694e32710c4585fd6b753d1d4a4, type: 3}
   Tile3: {fileID: 2080590109387450919, guid: a0d7437c0abd70e4eb719135b5da220c, type: 3}
   StartTile: {fileID: 0}
+  spawnSpeed: 5
 --- !u!4 &1453688042
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,3 +1092,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 350525678}
   - {fileID: 1453688042}
+  - {fileID: 963194228}
