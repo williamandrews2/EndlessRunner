@@ -31,8 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if(horizontalInput == 1 && lane1)
         {
             if(isAxisInUse == false)
-            {
-                Debug.Log("Player moving from 1 - 2, horizontalInput = " + horizontalInput);
+            {                
                 lane1 = false;
                 lane2 = true;
                 lane3 = false;
@@ -45,8 +44,7 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput == 1 && lane2)
         {
             if (isAxisInUse == false)
-            {
-                Debug.Log("Player moving from 2 - 3, horizontalInput = " + horizontalInput);
+            {                
                 lane1 = false;
                 lane2 = false;
                 lane3 = true;
@@ -60,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isAxisInUse == false)
             {
-                Debug.Log("Player moving from 3 - 2, horizontalInput = " + horizontalInput);
                 lane1 = false;
                 lane2 = true;
                 lane3 = false;
@@ -74,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isAxisInUse == false)
             {
-                Debug.Log("Player moving from 2 - 1, horizontalInput = " + horizontalInput);
                 lane1 = true;
                 lane2 = false;
                 lane3 = false;
