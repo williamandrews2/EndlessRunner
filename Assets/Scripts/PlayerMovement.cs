@@ -1,88 +1,66 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody rb;
-    [SerializeField] float movementSpeed = 6f;
+    [SerializeField] float smoothTime = 0.07f; // Lane change speed
 
-    private bool lane1 = false;
-    private bool lane2 = true;
-    private bool lane3 = false;
-    private bool isAxisInUse = false;
+    private int currentLane = 1; // Index player's current lane position (player starts in the middle lane)
+    private bool isChangingLane = false;
+    private Vector3 velocity = Vector3.zero;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Define the rigidbody (rb)
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        // Using Input Manager to act as GetKeyDown to accomodate different controls.
-
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        // Move from lane1 to lane2
-        if(horizontalInput == 1 && lane1)
+        if (!isChangingLane)
         {
-            if(isAxisInUse == false)
-            {                
-                lane1 = false;
-                lane2 = true;
-                lane3 = false;
-                transform.position += new Vector3(2.5f, 0, 0);
-                isAxisInUse = true;
+            // Right player movement
+            if (horizontalInput > 0)
+            {
+                ChangeLane(1);
+            }
+
+            // Left player movement
+            else if (horizontalInput < 0)
+            {
+                ChangeLane(-1);
             }
         }
+    }
 
-        // Move from lane2 to lane3
-        else if (horizontalInput == 1 && lane2)
+    void ChangeLane(int direction)
+    {
+        // Check index and input to ensure player cannot move out of bounds
+        if (currentLane + direction >= 0 && currentLane + direction <= 2)
         {
-            if (isAxisInUse == false)
-            {                
-                lane1 = false;
-                lane2 = false;
-                lane3 = true;
-                transform.position += new Vector3(2.5f, 0, 0);
-                isAxisInUse = true;
-            }            
+            isChangingLane = true;
+
+            float targetPositionX = transform.position.x + direction * 2.5f;
+
+            StartCoroutine(SmoothMovement(targetPositionX));
+
+            currentLane += direction;
+        }
+    }
+
+    IEnumerator SmoothMovement(float targetPositionX)
+    {
+        // Function for smooth transition to the destination lane
+        while(Mathf.Abs(transform.position.x - targetPositionX) > 0.01f) 
+        {
+            Vector3 targetPosition = new Vector3(targetPositionX, transform.position.y, transform.position.z);
+
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition,ref velocity, smoothTime);
+
+            yield return null;
         }
 
-        // Move from lane3 to lane2
-        else if (horizontalInput == -1 && lane3)
-        {
-            if (isAxisInUse == false)
-            {
-                lane1 = false;
-                lane2 = true;
-                lane3 = false;
-                transform.position -= new Vector3(2.5f, 0, 0);
-                isAxisInUse = true;
-            }                
-        }
+        // Final movement of player to the destination lane
+        transform.position = new Vector3(targetPositionX, transform.position.y, transform.position.z);
 
-        // Move from lane2 to lane1
-        else if (horizontalInput == -1 && lane2)
-        {
-            if (isAxisInUse == false)
-            {
-                lane1 = true;
-                lane2 = false;
-                lane3 = false;
-                transform.position -= new Vector3(2.5f, 0, 0);
-                isAxisInUse = true;
-            }                            
-        }
-
-        // Reset
-        else if (horizontalInput == 0)
-        {
-            isAxisInUse = false;
-        }
+        isChangingLane = false;
     }
 }
