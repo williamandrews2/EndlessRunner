@@ -9,8 +9,7 @@ public class PlayerLife : MonoBehaviour
     {
         if (other.tag == "Obstacle")
         {
-            Debug.Log("Game Over!");
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("GameOverScene");
         }            
     }
 }
