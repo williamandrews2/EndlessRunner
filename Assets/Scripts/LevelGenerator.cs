@@ -75,6 +75,7 @@ public class LevelGenerator : MonoBehaviour
 
         }
 
-        spawnSpeed += 0.5f * Time.deltaTime;
+        // Increase spawn speed
+        spawnSpeed += 0.3f * Time.deltaTime;
     }
 }

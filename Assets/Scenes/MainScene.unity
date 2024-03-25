@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ecf6cc6f46022418393aca3afc5321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTime: 0.07
+  smoothTime: 0.05
 --- !u!114 &1312291518
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float smoothTime = 0.07f; // Lane change speed
+    [SerializeField] float smoothTime = 0.05f; // Lane change speed
 
     private int currentLane = 1; // Index player's current lane position (player starts in the middle lane)
     private bool isChangingLane = false;
