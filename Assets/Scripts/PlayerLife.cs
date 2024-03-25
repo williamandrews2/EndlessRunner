@@ -15,7 +15,12 @@ public class PlayerLife : MonoBehaviour
     {
         if (other.tag == "Obstacle")
         {
-            SceneManager.LoadScene("GameOverScene");
+            ReloadLevel();
         }            
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene("GameOverScene");
     }
 }
