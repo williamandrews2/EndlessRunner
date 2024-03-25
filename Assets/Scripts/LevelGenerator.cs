@@ -11,8 +11,7 @@ public class LevelGenerator : MonoBehaviour
 
     [SerializeField] float spawnSpeed = 5f;
     private float Index = 0;
-    private float spawnPosition = 80;
-    private float deadZone = -20;
+    private float spawnPosition = 80;    
 
     private void Start()
     {
