@@ -9,8 +9,6 @@ public class LevelDespawner : MonoBehaviour
     {
         if (transform.position.z < deadZone)
         {
-            Debug.Log("Tile Deleted!");
-
             Destroy(gameObject);
         }
     }

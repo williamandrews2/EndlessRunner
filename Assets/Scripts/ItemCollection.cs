@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ItemCollection : MonoBehaviour
 {
     [SerializeField] Text coinsText;
-    int coinTotal = 0;
+    private int coinTotal = 0;
 
     private void Start()
     {
@@ -15,7 +15,8 @@ public class ItemCollection : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Coin")){
-            Destroy(other.gameObject);
+            Debug.Log("Coin collected!");
+            Destroy(other.gameObject);           
             coinTotal++;
             updateCoins();
         }

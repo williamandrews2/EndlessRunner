@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Tile2;
     public GameObject Tile3;
     public GameObject StartTile;
+    public int waitTime = 8;
 
     [SerializeField] float spawnSpeed = 5f;
     private float Index = 0;
@@ -25,6 +26,8 @@ public class LevelGenerator : MonoBehaviour
         StartTile3.transform.position = new Vector3(0, 0, 7);
         GameObject StartTile4 = Instantiate(Tile2 , transform);
         StartTile4.transform.position = new Vector3(0, 0, -13);
+
+        //StartCoroutine(IncreaseSpeed(waitTime));
     }
 
     private void Update()
@@ -70,6 +73,8 @@ public class LevelGenerator : MonoBehaviour
 
             Index = Index - 19.95f;
 
-        }        
+        }
+
+        spawnSpeed += 0.5f * Time.deltaTime;
     }
 }
