@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private int currentLane = 1; // Index player's current lane position (player starts in the middle lane)
     private bool isChangingLane = false;
     private Vector3 velocity = Vector3.zero;
-
+     
     void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
