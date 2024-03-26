@@ -7,8 +7,6 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Tile1;
     public GameObject Tile2;
     public GameObject Tile3;
-    public GameObject StartTile;
-    public int waitTime = 8;
 
     [SerializeField] float spawnSpeed = 5f;
     private float Index = 0;
@@ -16,18 +14,22 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
+        // Begin the level by spawning 5 initial level tiles.
+
         GameObject StartTile0 = Instantiate(Tile1, transform);
         StartTile0.transform.position = new Vector3(0, 0, 67);
+
         GameObject StartTile1 = Instantiate(Tile1, transform);
-        StartTile1.transform.position = new Vector3(0, 0, 47); // was 7
+        StartTile1.transform.position = new Vector3(0, 0, 47); 
+
         GameObject StartTile2 = Instantiate(Tile1, transform);
-        StartTile2.transform.position = new Vector3(0, 0, 27); // was 13
+        StartTile2.transform.position = new Vector3(0, 0, 27); 
+
         GameObject StartTile3 = Instantiate(Tile3, transform);
         StartTile3.transform.position = new Vector3(0, 0, 7);
+
         GameObject StartTile4 = Instantiate(Tile2 , transform);
         StartTile4.transform.position = new Vector3(0, 0, -13);
-
-        //StartCoroutine(IncreaseSpeed(waitTime));
     }
 
     private void Update()
@@ -36,6 +38,8 @@ public class LevelGenerator : MonoBehaviour
 
         if(transform.position.z <= Index)
         {
+            // Pick a random one of three types of level tiles to spawn
+
             int randomInt1 = Random.Range(0, 3);
 
             if(randomInt1 == 0)
@@ -54,7 +58,10 @@ public class LevelGenerator : MonoBehaviour
                 TempTile1.transform.position = new Vector3(0, 0, spawnPosition);
             }
 
-            int randomInt2 = Random.Range(0, 3);
+            // Pick a random one of three types of level tiles to spawn again
+
+            //int randomInt2 = Random.Range(0, 3);
+
             if (randomInt1 == 0)
             {
                 GameObject TempTile2 = Instantiate(Tile1, transform);
@@ -75,7 +82,7 @@ public class LevelGenerator : MonoBehaviour
 
         }
 
-        // Increase spawn speed
+        // Progressively increase spawn speed
         spawnSpeed += 0.3f * Time.deltaTime;
     }
 }
