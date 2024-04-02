@@ -7,6 +7,7 @@ public class ItemCollection : MonoBehaviour
 {
     [SerializeField] Text coinsText;
     private int coinTotal = 0;
+    private bool isCollidingWithCoin = false;
 
     void Start()
     {
@@ -14,13 +15,27 @@ public class ItemCollection : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Coin")){
 
-            Destroy(other.gameObject);   
-            
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.CompareTag("Coin") && !isCollidingWithCoin)
+        {
+            isCollidingWithCoin = true;
+
             coinTotal++;
 
             updateCoins();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            isCollidingWithCoin = false;
         }
     }
 
