@@ -11,19 +11,17 @@ public class ItemCollection : MonoBehaviour
 
     void Start()
     {
-        updateCoins();
+        //updateCoins();
     }
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.CompareTag("Coin"))
-        {
-            Destroy(other.gameObject);
-        }
-
-        if(other.gameObject.CompareTag("Coin") && !isCollidingWithCoin)
+        if (other.gameObject.CompareTag("Coin") && !isCollidingWithCoin)
         {
             isCollidingWithCoin = true;
+            
+            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+            Debug.Log("Coin is Destroyed!");
 
             coinTotal++;
 
