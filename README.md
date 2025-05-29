@@ -38,7 +38,7 @@ This is a 3D endless runner game developed in Unity, where players navigate thro
 Open the cloned project folder using Unity Hub or directly through the Unity Editor.
 
 3. **Run the Game**
-Press the Play button in the Unity Editor to start the game.
+Press the Play button in the Unity Editor to start the game. Use the left and right arrow keys to navigate side to side and reach a high score!
 
 ## 📸 Screenshots
 
