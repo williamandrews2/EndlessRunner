@@ -5,7 +5,7 @@ This is a 3D endless runner game developed in Unity, where players navigate thro
 ## 🎮 Features
 
 - **Endless Gameplay**  
-  The game continuously generates new paths, ensuring a unique experience each time.
+  The game continuously generates new paths, ensuring a unique experience each time. The speed also increases as time progresses, so be quick!
 
 - **Coin Collection System**  
   Players can collect coins scattered throughout the path to increase their score.
