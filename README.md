@@ -1,4 +1,4 @@
-# Endless Runner
+# GeoDash
 
 This is a 3D endless runner game developed in Unity, where players navigate through an infinite path, collecting coins and avoiding obstacles to achieve high scores. The game features dynamic environments, engaging audio, and responsive controls, providing an immersive experience.
 
